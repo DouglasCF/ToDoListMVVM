@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ToDoList</string>
+
+    <string name="empty_todo_list">There isn\'t a ToDo item created yet. Click on \'+\' button to start creating.</string>
+    <string name="new_todo_item">New ToDo Item</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="save">Save</string>
+    <string name="todo_marked_as_done">ToDo marked as done</string>
+    <string name="undo">Undo</string>
+</resources>
