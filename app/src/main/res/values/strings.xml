@@ -8,4 +8,5 @@
     <string name="save">Save</string>
     <string name="todo_marked_as_done">ToDo marked as done</string>
     <string name="undo">Undo</string>
+    <string name="empty_title">Please fill the title</string>
 </resources>

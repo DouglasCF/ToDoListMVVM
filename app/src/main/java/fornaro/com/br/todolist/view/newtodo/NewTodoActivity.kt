@@ -3,11 +3,13 @@ package fornaro.com.br.todolist.view.newtodo
 import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.Menu
 import android.view.MenuItem
 import fornaro.com.br.todolist.R
 import fornaro.com.br.todolist.viewmodel.NewTodoViewModel
-import kotlinx.android.synthetic.main.item_todo.*
+import kotlinx.android.synthetic.main.activity_new_todo.*
 
 class NewTodoActivity : AppCompatActivity(), NewTodoCallback {
 
@@ -22,6 +24,7 @@ class NewTodoActivity : AppCompatActivity(), NewTodoCallback {
         }
 
         setupViewModel()
+        setupTextWatcher()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -44,11 +47,25 @@ class NewTodoActivity : AppCompatActivity(), NewTodoCallback {
     }
 
     override fun onTitleEmpty() {
+        titleLayout.isErrorEnabled = true
+        titleLayout.error = getString(R.string.empty_title)
     }
 
     private fun setupViewModel() {
         viewModel = ViewModelProviders.of(this).get(NewTodoViewModel::class.java)
         viewModel.callback = this
+    }
+
+    private fun setupTextWatcher() {
+        titleText.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                titleLayout.isErrorEnabled = s.isNullOrEmpty()
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+        })
     }
 
     private fun save() {
