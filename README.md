@@ -11,3 +11,8 @@ This is a simple todo list app which is possible to:
 The project was developed as follows:
 * Developed using Kotlin language;
 * Implemented MVVM architecture;
+
+## Libraries
+* Support library;
+* Room;
+* ViewModel and LiveData;
